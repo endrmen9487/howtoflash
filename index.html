@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NK的個人網站</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      color : white;
+      background-color: #9f9fdd;
+    }
+
+    .sidebar {
+      height: 500px;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #3c3d6d;
+      padding-top: 20px;
+      color: white;
+      border-radius: 20px 20px 20px 20px;;
+      margin-top: 50px;
+      margin-left: 20px;
+    }
+
+        .window {
+      height: 500px;
+      width: 500px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #ffeaf6;
+      padding-top: 20px;
+      color: #80586e;
+      border-radius: 20px 20px 20px 20px;;
+      margin-top: 50px;
+      margin-left: 300px;
+      padding: 10px 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .sidebar a:hover {
+      background-color: #232446;
+    }
+
+    .main-content {
+      margin-left: 300px;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <a onclick="showContent('intro')">自我介紹</a>
+    <a onclick="showContent('socialmedia')">社群媒體</a>
+    <a onclick="showContent('profile')">個人資料</a>
+    <a onclick="showContent('future')">未來規劃</a>
+  </div>
+
+    <div class="window" id="1">
+      <h1>自我介紹</h1>
+      <h3>
+      <p>
+      NK，16歲，是個學生（迫真</br>
+      成績偏廢 沒什麼特長</br>
+      想學網頁製作 然後去外包圈錢</br>
+      喜歡吃冰跟布丁</br>
+      本人做事跟說話不動腦子可能雷到你</br>
+      然後我是個V+÷ P主推Chinozo跟MIMI</br>
+      喜歡的聲庫是flower</br>
+      然後我喜歡畫畫</br>
+      </p>
+      </h3>
+  </div>
+
+
+  <script>
+    function showContent(section) {
+      const content = document.getElementById('1');
+  if (section === 'intro') {
+    content.innerHTML = `
+      <h1>自我介紹</h1>
+      <h3>
+      <p>
+      NK，16歲，是個學生（迫真</br>
+      成績偏廢 沒什麼特長</br>
+      想學網頁製作 然後去外包圈錢</br>
+      喜歡吃冰跟布丁</br>
+      本人做事跟說話不動腦子可能雷到你</br>
+      然後我是個V+÷ P主推Chinozo跟MIMI</br>
+      喜歡的聲庫是flower</br>
+      然後我喜歡畫畫</br>
+      </p>
+      </h3>
+    `;
+  } else if (section === 'socialmedia') {
+    content.innerHTML = `
+      <h1>社群媒體</h1>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="https://www.instagram.com" target="_blank">
+          <img src="image/ig.png" width="54px" alt="Instagram">
+        </a>
+        <a href="https://discord.com" target="_blank">
+          <img src="image/dc.png" width="54px" alt="Discord">
+        </a>
+      </div>
+      <p>暫時不公開</p>
+    `;
+  } else if (section === 'profile') {
+    content.innerHTML = `
+      <h1>個人資料</h1>
+      <h3>廢物高中生一個</h3>
+    `;
+  } else if (section === 'future'){
+    content.innerHTML = `
+      <h1>未來規劃</h1>
+      <h3>
+      <p>
+      首先最重要的就是把成績拉上去</br>
+      再來考上台科大 逃離成為脫北者的命運</br>
+      然後提高成績的同時去學網頁製作 然後去外包圈錢</br>
+      學畫畫變大佬</br>
+      變成超級有錢人 獲得一輩子不愁吃穿的財富與名聲</br>
+      <s>還有學cos(?</s></br>
+      </p>
+      </h3>
+    `
+  }
+}
+
+  </script>
+
+</body>
+</html>
