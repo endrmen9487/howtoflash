@@ -1,148 +1,250 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NK的個人網站</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <title>刷機教學</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans TC', sans-serif;
-      color : white;
-      background-color: #9f9fdd;
+    :root {
+      --md-sys-color-surface: #fef7ff;
+      --md-sys-color-primary-container: #eaddff;
+      --md-sys-color-on-surface: #1d1b20;
+      --md-sys-color-primary: #6750A4;
+
+    }
+    body { 
+      margin: 0; font-family: 'Roboto', sans-serif; display: flex; 
+      background-color: var(--md-sys-color-surface);
     }
 
-    .sidebar {
-      height: 500px;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #3c3d6d;
-      padding-top: 20px;
-      color: white;
-      border-radius: 20px 20px 20px 20px;;
-      margin-top: 50px;
-      margin-left: 20px;
+    .screenphone {
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+      height: auto;
+        }
+    
+    .drawer {
+      width: 280px; height: 100vh; background: #f7f2fa;
+      padding: 12px; box-sizing: border-box;
+      border-right: 1px solid #ddd;
+    }
+    .nav-item {
+      display: flex; align-items: center; padding: 12px 16px;
+      text-decoration: none; color: #49454f; border-radius: 100px;
+      margin-bottom: 4px; transition: 0.3s;
+    }
+    .nav-item:hover { background: #e8def8; }
+    .nav-item.active { 
+      background: var(--md-sys-color-primary-container); 
+      font-weight: bold;
+    }
+    .material-icons { margin-right: 12px; }
+    .material-symbols-outlined { margin-right: 12px; }
+
+
+    .m3-table {
+        width: 100%; max-width: 800px;
+        border-collapse: collapse;
+        border: 1px solid var(--md-sys-color-outline);
+        border-radius: 16px; border-style: hidden; box-shadow: 0 0 0 1px var(--md-sys-color-outline); 
+        overflow: hidden;
     }
 
-        .window {
-      height: 500px;
-      width: 500px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #ffeaf6;
-      padding-top: 20px;
-      color: #80586e;
-      border-radius: 20px 20px 20px 20px;;
-      margin-top: 50px;
-      margin-left: 300px;
-      padding: 10px 20px;
+    .codewindow {
+      border-radius: 12px;
+      width: 100%; max-width: 400px;
+      height: 100%; max-height: 200px;
+      background: #E6E0E9;
+      padding-left: 16px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
     }
 
-    .sidebar a {
-      display: block;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      cursor: pointer;
+    .codetext {
+      color: #49454f;
     }
 
-    .sidebar a:hover {
-      background-color: #232446;
+    .linktext {
+      color: #1d1b20;
     }
 
-    .main-content {
-      margin-left: 300px;
-      margin-top: 20px;
-      padding: 20px;
-    }
+    th { font-family: var(--primary-font); background: #E6E0E9; padding: 16px; }
+    td { padding: 12px; border-top: 1px solid var(--md-sys-color-outline); text-align: center; }
+        
+    tr:hover { background: rgba(103, 80, 164, 0.08); } 
+    @media print { .no-print { display: none; } }
+
+
+    main { flex: 1; padding: 40px; }
+    .page-content { display: none; animation: fadeIn 0.4s; }
+    .page-content.active { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
   </style>
 </head>
 <body>
+  
+  <aside class="drawer">
+    <h2 style="padding-left: 16px;">Android手機刷機教學</h2>
+    <nav>
+      <a href="#home" class="nav-item" id="link-home">
+        <span class="material-symbols-outlined">home</span> 為什麼要刷機
+      </a>
+      <a href="#warning" class="nav-item" id="link-warning">
+        <span class="material-symbols-outlined">warning</span>注意事項
+      </a>
+      <a href="#whocan" class="nav-item" id="link-whocan">
+        <span class="material-symbols-outlined">list</span> 手機挑選
+      </a>
+      <a href="#whatbootloader" class="nav-item" id="link-whatbootloader">
+        <span class="material-symbols-outlined">bookmark_star</span>Bootloader是什麼
+      </a>
+      <a href="#tool" class="nav-item" id="link-tool">
+<span class="material-symbols-outlined">service_toolbox</span>必要工具
+      </a>
+      <a href="#step-pixel" class="nav-item" id="link-step-pixel">
+        <span class="material-symbols-outlined">mobile_3</span>解鎖BL(Google Pixel)
+      </a>
+      <a href="#step-nothing" class="nav-item" id="link-step-nothing">
+        <span class="material-symbols-outlined">mobile_3</span>解鎖BL(Nothing)       
+      </a>
+      
+     <a href="#step-oldsamsung" class="nav-item" id="link-step-oldsamsung">
+        <span class="material-symbols-outlined">mobile_3</span>解鎖BL(舊版三星)       
+      </a>
 
-  <div class="sidebar">
-    <a onclick="showContent('intro')">自我介紹</a>
-    <a onclick="showContent('socialmedia')">社群媒體</a>
-    <a onclick="showContent('profile')">個人資料</a>
-    <a onclick="showContent('future')">未來規劃</a>
-  </div>
+     <a href="#step-samsung" class="nav-item" id="link-step-samsung">
+        <span class="material-symbols-outlined">mobile_3</span>解鎖BL(三星)       
+      </a>
 
-    <div class="window" id="1">
-      <h1>自我介紹</h1>
-      <h3>
-      <p>
-      NK，16歲，是個學生（迫真</br>
-      成績偏廢 沒什麼特長</br>
-      想學網頁製作 然後去外包圈錢</br>
-      喜歡吃冰跟布丁</br>
-      本人做事跟說話不動腦子可能雷到你</br>
-      然後我是個V+÷ P主推Chinozo跟MIMI</br>
-      喜歡的聲庫是flower</br>
-      然後我喜歡畫畫</br>
-      </p>
-      </h3>
-  </div>
+    </nav>
+  </aside>
 
+  <main>
+    <div id="home" class="page-content">
+        <h1>為什麼要刷機</h1>
+        <p>刷機在以前的年代，通常是為了取得更高的系統權限 已解決一些如：性能不足、刪除內建軟體、幫停止更新的手機裝上新系統之類的</p>
+        <p>但現在手機大多已經不需要透過這種方法解決問題(或根本不行) 所以現在大部分刷機就只是去體驗一下其他系統或是單純刷好玩的</p>
+    </div>
+    <div id="warning" class="page-content">
+        <h1>注意事項</h1>
+        <p> 刷機的每個過程都有可能讓你的手機變成一塊毫無功能的黑色長方體 而且會清空手機內的所有資料 大部分廠商也會破保固</p>
+        <h2>刷機前請一定備份重要資料</h2>
+    </div>
+    <div id="whocan" class="page-content">
+        <h1>手機挑選</h1>
+        <table class="m3-table">
+            <tr>
+                <th>廠商</th><th>是否可解鎖刷機(正常手段)</th>
+            </tr>
+            <tr>
+                <td>Google</td><td>非常適合</td>
+            </tr>
+            <tr>
+                <td>Nothing</td><td>適合</td>
+            </tr>
+            <tr>
+                <td>OnePlus</td><td>適合(不破保)</td>
+            </tr>
+            <tr>
+                <td>小米</td><td>非出廠搭載HyperOS適合</td>            
+            <tr>
+                <td>三星</td><td>OneUI 8以前適合</td>
+            </tr>
+            <tr>
+                <td>ASUS</td><td>無法(解鎖通路已關閉)</td>
+            </tr>
+            <tr>
+                <td>OPPO/Realme</td><td>無法</td>
+            </tr>
+            <tr>
+                <td>其餘陸廠</td><td>無法</td>
+            </tr>
+
+            <tr>
+                <td>未列出</td><td>自己查</td>
+            </tr>
+        </table>
+    </div>
+    <div id="whatbootloader" class="page-content">
+      <h1>Bootloader是什麼</h1>
+      <p>Bootloader 簡稱BL(not boy love)，其主要功能類似於x86電腦上的BIOS，在開機時進行硬體初始化並載入引導。</p>
+      <p>如果要進行刷機，必須先解鎖手機的BL 讓我們擁有更大的改造空間。</p>
+    </div>
+
+    <div id="tool" class="page-content">
+      <h1>必要工具</h1>
+      <h2>通通必須要有</h2>
+      <p>adb、手機驅動程式</p>
+      <h2>小米必要</h2>
+      <p>MiFlash</p>
+    </div>
+
+    <div id="step-pixel" class="page-content">
+      <h1>解鎖BL(Google Pixel)</h1>
+      <h2>此步驟會清空手機內資料</h2>
+      <p>1.進入設定 關於手機</p>
+      <p>2.瘋狂點擊版本號碼 開啟開發者模式 進入後開啟oem unlock</p> <img class="screenphone" src="image/oemunlock.png">
+      <p>3.將手機關機 然後按住音量-跟開機鍵開機 進到Fastboot Mode</p>
+      <p>4.在adb中輸入以下指令 沒有adb就去裝</p>
+
+      <div class="codewindow">
+        <p class="codetext">fastboot devices</p>
+        <p class="codetext">fastboot flashing unlock</p>
+      </div>
+      <p>5.使用音量鍵將螢幕上的選項切換至unlock bootloader 然後開機鍵確認</p>
+    </div>
+
+    <div id="step-nothing" class="page-content">
+      <h1>解鎖BL(Nothing)</h1>
+      <p>同Pixel</p>
+    </div>
+
+    <div id="step-oldsamsung" class="page-content">
+      <h1>解鎖BL(舊版三星)</h1>
+      <h2>此步驟不清除手機內資料 但還是建議備份</h2>
+      <p>1.進入開發者選項開啟oem unlock(同Pixel)</p>
+      <p>2.將手機關機</p>
+      <p>3.打開電腦瀏覽器 進入<a class="linktext" href="https://autoroot.chainfire.eu/" target="_blank">CF root</a></p>
+      <p>4.下載你的裝置對應的檔案 解壓縮後打開odin.exe</p>
+      <img src="image/odin.png">
+
+    </div>
+
+    <div id="step-samsung" class="page-content">
+      <h1>解鎖BL(三星)</h1>
+      <h2>此步驟會清空手機內資料</h2>
+      <p>1.進入開發者選項開啟oem unlock(同Pixel)</p>
+      <p>2.關機 並且插上電源(建議電腦 但其實一般插頭也行) 按住音量-跟開機鍵開機</p>
+      <p>3.你會進入一個綠綠的畫面 然後按住音量+就可以解鎖了</p>
+    </div>
+
+  </main>
 
   <script>
-    function showContent(section) {
-      const content = document.getElementById('1');
-  if (section === 'intro') {
-    content.innerHTML = `
-      <h1>自我介紹</h1>
-      <h3>
-      <p>
-      NK，16歲，是個學生（迫真</br>
-      成績偏廢 沒什麼特長</br>
-      想學網頁製作 然後去外包圈錢</br>
-      喜歡吃冰跟布丁</br>
-      本人做事跟說話不動腦子可能雷到你</br>
-      然後我是個V+÷ P主推Chinozo跟MIMI</br>
-      喜歡的聲庫是flower</br>
-      然後我喜歡畫畫</br>
-      </p>
-      </h3>
-    `;
-  } else if (section === 'socialmedia') {
-    content.innerHTML = `
-      <h1>社群媒體</h1>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="https://www.instagram.com" target="_blank">
-          <img src="image/ig.png" width="54px" alt="Instagram">
-        </a>
-        <a href="https://discord.com" target="_blank">
-          <img src="image/dc.png" width="54px" alt="Discord">
-        </a>
-      </div>
-      <p>暫時不公開</p>
-    `;
-  } else if (section === 'profile') {
-    content.innerHTML = `
-      <h1>個人資料</h1>
-      <h3>廢物高中生一個</h3>
-    `;
-  } else if (section === 'future'){
-    content.innerHTML = `
-      <h1>未來規劃</h1>
-      <h3>
-      <p>
-      首先最重要的就是把成績拉上去</br>
-      再來考上台科大 逃離成為脫北者的命運</br>
-      然後提高成績的同時去學網頁製作 然後去外包圈錢</br>
-      學畫畫變大佬</br>
-      變成超級有錢人 獲得一輩子不愁吃穿的財富與名聲</br>
-      <s>還有學cos(?</s></br>
-      </p>
-      </h3>
-    `
-  }
-}
+    function router() {
+      // 1. 獲取當前 Hash，如果沒有則預設為 #home
+      const hash = window.location.hash || '#home';
+      
+      // 2. 隱藏所有頁面，移除所有選取狀態
+      document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
 
+      // 3. 顯示當前頁面，高亮對應導覽項
+      const activePage = document.querySelector(hash);
+      const activeLink = document.querySelector(`#link-${hash.replace('#', '')}`);
+      
+      if (activePage) activePage.classList.add('active');
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    // 監聽網址變化與初始載入
+    window.addEventListener('hashchange', router);
+    window.onload = router;
   </script>
-
 </body>
 </html>
