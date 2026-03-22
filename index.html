@@ -112,6 +112,10 @@
       <a href="#step-nothing" class="nav-item" id="link-step-nothing">
         <span class="material-symbols-outlined">mobile_3</span>解鎖BL(Nothing)       
       </a>
+
+      <a href="#step-oneplus" class="nav-item" id="link-step-oneplus">
+        <span class="material-symbols-outlined">mobile_3</span>解鎖BL(OnePlus)       
+      </a>
       
      <a href="#step-oldsamsung" class="nav-item" id="link-step-oldsamsung">
         <span class="material-symbols-outlined">mobile_3</span>解鎖BL(舊版三星)       
@@ -123,6 +127,14 @@
 
       <a href="#step-mi" class="nav-item" id="link-step-mi">
       <span class="material-symbols-outlined">mobile_3</span>解鎖BL(小米)
+      </a>
+
+      <a href="#recovery" class="nav-item" id="link-recovery">
+      <span class="material-symbols-outlined">settings</span>刷入Recovery
+      </a>
+
+      <a href="#flash" class="nav-item" id="link-flash">
+        <span class="material-symbols-outlined">android</span>刷入系統
       </a>
 
     </nav>
@@ -208,6 +220,12 @@
       <p>同Pixel</p>
     </div>
 
+    <div id="step-oneplus" class="page-content">
+      <h1>解鎖BL(OnePlus)</h1>
+      <p>同上面兩個 只是fastboot flashing unlock改成flash oem unlock</p>
+    </div>
+
+
     <div id="step-oldsamsung" class="page-content">
       <h1>解鎖BL(舊版三星)</h1>
       <h2>此步驟不清除手機內資料 但還是建議備份</h2>
@@ -242,7 +260,30 @@
 
     </div>
 
+    <div id="recovery" class="page-content">
+      <h1>刷入Recovery</h1>
+      <p>Recovery基本上是改機最重要的東西 可以用它刷入各種自定義的東西 如系統、核心 甚至其他Recovery</p>
+      <p>基本上除了三星以外大部分廠牌刷入Recovery步驟差不多</p>
+      <p>這邊可以去TWRP官網或xda搜尋你裝置的型號 照著刷入</p>
+      <p>如果之後刷系統需要其他Recovery也可以透過TWRP網站教的方法刷入 步驟差不多</p>
+      <p>也可以把別的Recovery丟進TWRP 用他刷進去</p>
+    </div>
+
+    <div id="flash" class="page-content">
+      <h1>刷入系統(TWRP)</h1>
+      <p>基本上這就是最後一步 而且刷入方法基本上完全相同</p>
+      <p>1.按住音量+跟開機鍵進入TWRP 先進入wipe 選擇advanced wipe 把SD card跟usb otg以外的分區都wipe掉(此操作會把手機內東西刪光 連系統都不剩)</p>
+      <p>2.把下載的rom.zip丟進手機 進入install 選擇你的rom.zip 直接刷入後重開機即可</p>
+      <img class="screenphone" src="image/twrp.png">
+      <h1>刷入系統(系統自帶Recovery)</h1>
+      <p>很多新的手機/系統需要用他自帶的Recovery刷入 那種大多都是以同個基底修改的 所以步驟都相同</p>
+      <p>1.用一樣的步驟進入recovery 到factory restet把東西刪光</p>
+      <p>2.點擊apply update 選擇adb sideload</p>
+      <img class="screenphone" src="image/recovery.png">
+      <p>3.電腦打開adb 輸入指令</p>
+    </div>
   </main>
+
 
   <script>
     function router() {
